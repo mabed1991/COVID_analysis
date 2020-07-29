@@ -1,0 +1,90 @@
+---
+title: "COVID Trends"
+author: "Mohamed Abed"
+date: "7/29/2020"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Intro
+
+- COVID Trends is an application to present data about New Corona Virus Panademic.
+- Data obtained from this [kaggle link.](https://www.kaggle.com/sudalairajkumar/novel-corona-virus-2019-dataset?select=covid_19_data.csv)  
+
+- You can choose desired country from list of countries and choose type of cases of analysis (ex. confirmed). Then, a plot will be drawn to represent data. Also a summation of the number of cases will appear below.
+
+- COVID Trends Application can be accessed though this [link.]()
+
+## Code - Example 1
+
+```{r echo=TRUE, eval= FALSE}
+# obtain data
+data=read.csv("covid_19_data_month.csv")
+# choose country and type of cases
+country="Egypt"
+target="confirmed"
+data= data[data$country==country,]
+# plot
+x <- data[, "Month"]
+y <- data[,target]
+plot(x,y,type='l',col=1,lwd=4,xlab='Month',ylab="No. of Confirmed Cases")
+#summary
+paste('Total',target,'Cases in',country,': ',max(data[,target]))
+
+```
+
+## Plot - Example 1
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+# obtain data
+data=read.csv("covid_19_data_month.csv")
+# choose country and type of cases
+country="Egypt"
+target="confirmed"
+data= data[data$country==country,]
+# plot
+x <- data[, "Month"]
+y <- data[,target]
+plot(x,y,type='l',col=1,lwd=4,xlab='Month',ylab="No. of Confirmed Cases")
+#summary
+paste('Total',target,'Cases in',country,': ',max(data[,target]))
+```
+
+## Code - Example 2
+
+```{r echo=TRUE, eval= FALSE}
+# obtain data
+data=read.csv("covid_19_data_month.csv")
+# choose country and type of cases
+country="US"
+target="recovered"
+data= data[data$country==country,]
+# plot
+x <- data[, "Month"]
+y <- data[,target]
+plot(x,y,type='l',col=3,lwd=4,xlab='Month',ylab="No. of Recovered Cases")
+#summary
+paste('Total',target,'Cases in',country,': ',max(data[,target]))
+
+```
+
+## Plot - Example 2
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+# obtain data
+data=read.csv("covid_19_data_month.csv")
+# choose country and type of cases
+country="US"
+target="recovered"
+data= data[data$country==country,]
+# plot
+x <- data[, "Month"]
+y <- data[,target]
+plot(x,y,type='l',col=3,lwd=4,xlab='Month',ylab="No. of Recovered Cases")
+#summary
+paste('Total',target,'Cases in',country,': ',max(data[,target]))
+```
